@@ -152,7 +152,9 @@ public class Main {
 			try {
 				Fruit.showAllNum(fruits);
 				System.out.print("果物の種類を選択してください: ");
-				n = sc.nextInt();
+				if((n = sc.nextInt()) < 0){
+					break;
+				}
 				System.out.print("購入する個数を選択してください: ");
 				fruits[n].bought(sc.nextInt());
 				if (Math.random() < 0.5) {
@@ -173,7 +175,7 @@ public class Main {
 		Fruit.showAllInfo(fruits);
 		System.out.println('\n');
 		int x = (int) (Math.random() * (fruits.length / 2));
-		int y = (int) (Math.random() * (fruits.length / 2) + (fruits.length / 2 + 1));
+		int y = (int) (Math.random() * (fruits.length / 2) + (fruits.length / 2));
 		Fruit.tryToSwapFruits(fruits[x], fruits[y]);
 		System.out.println("\n結果:");
 		Fruit.showAllInfo(fruits);
